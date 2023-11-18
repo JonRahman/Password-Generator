@@ -32,11 +32,26 @@ function getPasswordOptions() {
       break;
       }
   }
+    // // Confirm password options
+  let userWantsNumbers = window.confirm("Would you like to include numbers in your password?");
+  let userWantsSymbols = window.confirm("Would you like to include symbols in your password?");
+  let userWantsLowerCase = window.confirm("Would you like to include lowercase letters in your password?");
+  let userWantsUpperCase = window.confirm("Would you like to include uppercase letters in your password?");
+
+  // password does not appear at all
+  // // Return an object with selected options
+  return {
+    passwordLength,
+    userWantsNumbers,
+    userWantsSymbols,
+    userWantsLowerCase,
+    userWantsUpperCase
+  };
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  
+ 
 }
 
 // Function to generate password with user input
@@ -47,8 +62,46 @@ function generatePassword() {
   if (passwordOptions === null) {
     return null;
   }
+
+  const {
+    passwordLength,
+    userWantsNumbers,
+    userWantsSymbols,
+    userWantsLowerCase,
+    userWantsUpperCase
+  } = passwordOptions;
+
+  let characters = [];
+
+  if (userWantsSymbols) characters = characters.concat(specialCharacters);
+  if (userWantsNumbers) characters = characters.concat(numericCharacters);
+  if (userWantsLowerCase) characters = characters.concat(lowerCasedCharacters);
+  if (userWantsUpperCase) characters = characters.concat(upperCasedCharacters);
+
+  if (characters.length === 0) {
+    window.alert("Please select at least one character set.");
+    return null;
+  }
+
+  // Check if at least one character set is selected
+  if (characters.length === 0) {
+    window.alert("Please select at least one character set.");
+    return null;
+  }  
+
+  // Generate the password
+  let generatedPassword = '';
+  for (let i = 0; i < passwordLength; i++) {
+    const randomChar = getRandom(characters);
+    generatedPassword += randomChar;
+  }
+
+  return generatedPassword;
+
 }
 
+
+// ----- DONT CHANGE -----
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
