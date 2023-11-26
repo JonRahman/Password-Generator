@@ -32,14 +32,13 @@ function getPasswordOptions() {
       break;
       }
   }
-    // // Confirm password options
+   // Confirm password options
   let userWantsNumbers = window.confirm("Would you like to include numbers in your password?");
   let userWantsSymbols = window.confirm("Would you like to include symbols in your password?");
   let userWantsLowerCase = window.confirm("Would you like to include lowercase letters in your password?");
   let userWantsUpperCase = window.confirm("Would you like to include uppercase letters in your password?");
 
-  // password does not appear at all
-  // // Return an object with selected options
+  // Return an object with selected options
   return {
     passwordLength,
     userWantsNumbers,
@@ -51,7 +50,8 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
- 
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
 }
 
 // Function to generate password with user input
@@ -99,7 +99,6 @@ function generatePassword() {
   return generatedPassword;
 
 }
-
 
 // ----- DONT CHANGE -----
 // Get references to the #generate element
