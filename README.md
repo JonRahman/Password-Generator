@@ -16,6 +16,7 @@ The application follows the instructions outlined below:
 - Display the generated password on the page.
 
 ## Screenshot
+![challenge 4 screenshot](https://github.com/JonRahman/Password-Generator/assets/145556007/7963bb5b-ed0e-44bc-a8ca-920976a6f6d6)
 
 
 
